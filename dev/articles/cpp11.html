@@ -8,8 +8,8 @@
 <title>Get started with cpp11 • cpp11</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Source_Sans_Pro-0.4.9/font.css" rel="stylesheet">
-<link href="../deps/Source_Code_Pro-0.4.9/font.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Source_Sans_Pro-0.4.10/font.css" rel="stylesheet">
+<link href="../deps/Source_Code_Pro-0.4.10/font.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Get started with cpp11">
@@ -24,7 +24,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">cpp11</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.5.1.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.5.2.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -169,7 +169,7 @@ R:</p>
 <span><span class="va">add</span></span>
 <span><span class="co">#&gt; function (x, y, z) </span></span>
 <span><span class="co">#&gt; {</span></span>
-<span><span class="co">#&gt;     .Call("_code_1fe26295751c_add", x, y, z, PACKAGE = "code_1fe26295751c")</span></span>
+<span><span class="co">#&gt;     .Call("_code_21714fa9f472_add", x, y, z, PACKAGE = "code_21714fa9f472")</span></span>
 <span><span class="co">#&gt; }</span></span>
 <span><span class="fu">add</span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 6</span></span></code></pre></div>
@@ -320,7 +320,7 @@ competitive with the built-in (and highly optimised) <code><a href="https://rdrr
 while <code>sum_r()</code> is several orders of magnitude slower.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span><span class="op">(</span><span class="fl">1e3</span><span class="op">)</span></span>
-<span><span class="fu">bench</span><span class="fu">::</span><span class="fu"><a href="http://bench.r-lib.org/reference/mark.html" class="external-link">mark</a></span><span class="op">(</span></span>
+<span><span class="fu">bench</span><span class="fu">::</span><span class="fu"><a href="https://bench.r-lib.org/reference/mark.html" class="external-link">mark</a></span><span class="op">(</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>,</span>
 <span>  <span class="fu">sum_cpp</span><span class="op">(</span><span class="va">x</span><span class="op">)</span>,</span>
 <span>  <span class="fu">sum_r</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
@@ -328,9 +328,9 @@ while <code>sum_r()</code> is several orders of magnitude slower.</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 6</span></span></span>
 <span><span class="co">#&gt;   expression      min   median `itr/sec` mem_alloc `gc/sec`</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;bch:expr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;bch:tm&gt;</span> <span style="color: #949494; font-style: italic;">&lt;bch:tm&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;bch:byt&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> sum(x)       2.03µs   2.06µs   <span style="text-decoration: underline;">458</span>115.        0B        0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> sum_cpp(x)   1.92µs   2.02µs   <span style="text-decoration: underline;">434</span>588.        0B        0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> sum_r(x)    23.92µs  24.18µs    <span style="text-decoration: underline;">40</span>653.    31.7KB        0</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> sum(x)       2.03µs   2.05µs   <span style="text-decoration: underline;">473</span>589.        0B      0  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> sum_cpp(x)   1.92µs   1.99µs   <span style="text-decoration: underline;">464</span>321.        0B     46.4</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> sum_r(x)    25.87µs  26.14µs    <span style="text-decoration: underline;">37</span>738.    31.7KB      0</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="vector-input-vector-output">Vector input, vector output<a class="anchor" aria-label="anchor" href="#vector-input-vector-output"></a>
@@ -371,15 +371,15 @@ exponentiation.</p></li>
 going to be fast.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span><span class="op">(</span><span class="fl">1e6</span><span class="op">)</span></span>
-<span><span class="fu">bench</span><span class="fu">::</span><span class="fu"><a href="http://bench.r-lib.org/reference/mark.html" class="external-link">mark</a></span><span class="op">(</span></span>
+<span><span class="fu">bench</span><span class="fu">::</span><span class="fu"><a href="https://bench.r-lib.org/reference/mark.html" class="external-link">mark</a></span><span class="op">(</span></span>
 <span>  <span class="fu">pdist_r</span><span class="op">(</span><span class="fl">0.5</span>, <span class="va">y</span><span class="op">)</span>,</span>
 <span>  <span class="fu">pdist_cpp</span><span class="op">(</span><span class="fl">0.5</span>, <span class="va">y</span><span class="op">)</span></span>
 <span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 6</span></span></span>
 <span><span class="co">#&gt;   expression             min   median `itr/sec` mem_alloc `gc/sec`</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;bch:expr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;bch:tm&gt;</span> <span style="color: #949494; font-style: italic;">&lt;bch:tm&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;bch:byt&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> pdist_r(0.5, y)     4.43ms   4.54ms      218.    7.63MB     107.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> pdist_cpp(0.5, y)   3.75ms   3.85ms      259.    7.63MB     129.</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> pdist_r(0.5, y)     4.72ms   4.88ms      203.    7.63MB     101.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> pdist_cpp(0.5, y)   3.76ms   3.87ms      259.    7.63MB     129.</span></span></code></pre></div>
 <p>On my computer, it takes around 5 ms with a 1 million element
 <code>y</code> vector. The C++ function is about 2.5 times faster, ~2
 ms, but assuming it took you 10 minutes to write the C++ function, you’d
@@ -1138,7 +1138,7 @@ matrix.</p></li>
 <p>Benchmarking the two implementations yields a significant speedup for
 running the loops in C++:</p>
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">bench</span><span class="fu">::</span><span class="fu"><a href="http://bench.r-lib.org/reference/mark.html" class="external-link">mark</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="fu">bench</span><span class="fu">::</span><span class="fu"><a href="https://bench.r-lib.org/reference/mark.html" class="external-link">mark</a></span><span class="op">(</span></span>
 <span>  r <span class="op">=</span> <span class="op">{</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">42</span><span class="op">)</span></span>
 <span>    <span class="fu">gibbs_r</span><span class="op">(</span><span class="fl">100</span>, <span class="fl">10</span><span class="op">)</span></span>
@@ -1153,8 +1153,8 @@ running the loops in C++:</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 6</span></span></span>
 <span><span class="co">#&gt;   expression   min median `itr/sec` mem_alloc `gc/sec`</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;bch:expr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> r           24.4   24.8       1        32.3     12.7</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> cpp          1      1        24.9       1        1</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> r           25.8   26.1       1        32.3     18.4</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> cpp          1      1        25.9       1        1</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="r-vectorisation-versus-c-vectorisation">R vectorisation versus C++ vectorisation<a class="anchor" aria-label="anchor" href="#r-vectorisation-versus-c-vectorisation"></a>
@@ -1245,7 +1245,7 @@ return the same values:</p>
 C++ version: it used <code>0.004</code> instead of <code>0.04</code>.
 Finally, we can benchmark our three approaches:</p>
 <div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">bench</span><span class="fu">::</span><span class="fu"><a href="http://bench.r-lib.org/reference/mark.html" class="external-link">mark</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="fu">bench</span><span class="fu">::</span><span class="fu"><a href="https://bench.r-lib.org/reference/mark.html" class="external-link">mark</a></span><span class="op">(</span></span>
 <span>  vacc1 <span class="op">=</span> <span class="fu">vacc1</span><span class="op">(</span><span class="va">age</span>, <span class="va">female</span>, <span class="va">ily</span><span class="op">)</span>,</span>
 <span>  vacc2 <span class="op">=</span> <span class="fu">vacc2</span><span class="op">(</span><span class="va">age</span>, <span class="va">female</span>, <span class="va">ily</span><span class="op">)</span>,</span>
 <span>  vacc3 <span class="op">=</span> <span class="fu">vacc3</span><span class="op">(</span><span class="va">age</span>, <span class="va">female</span>, <span class="va">ily</span><span class="op">)</span></span>
@@ -1253,9 +1253,9 @@ Finally, we can benchmark our three approaches:</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 6</span></span></span>
 <span><span class="co">#&gt;   expression      min   median `itr/sec` mem_alloc `gc/sec`</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;bch:expr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;bch:tm&gt;</span> <span style="color: #949494; font-style: italic;">&lt;bch:tm&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;bch:byt&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> vacc1        1.49ms   1.53ms      647.    7.86KB     36.1</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> vacc2       40.72µs  42.84µs    <span style="text-decoration: underline;">22</span>220.  146.68KB     40.1</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> vacc3       12.06µs  12.32µs    <span style="text-decoration: underline;">79</span>594.   14.02KB     15.9</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> vacc1        1.52ms   1.58ms      618.    7.86KB     22.0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> vacc2       42.38µs   44.3µs    <span style="text-decoration: underline;">21</span>262.  146.68KB     37.5</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> vacc3       12.09µs  12.33µs    <span style="text-decoration: underline;">79</span>943.   14.02KB     16.0</span></span></code></pre></div>
 <p>Not surprisingly, our original approach with loops is very slow.
 Vectorising in R gives a huge speedup, and we can eke out even more
 performance (about ten times) with the C++ loop. I was a little
@@ -1327,8 +1327,7 @@ notes.)</p></li>
 <p>Writing performant code may also require you to rethink your basic
 approach: a solid understanding of basic data structures and algorithms
 is very helpful here. That’s beyond the scope of this vignette, but I’d
-suggest the <a href="https://www.algorist.com/" class="external-link"><em>Algorithm Design
-Manual</em></a> MIT’s <a href="https://web.archive.org/web/20200604134756/https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-046j-introduction-to-algorithms-sma-5503-fall-2005/" class="external-link"><em>Introduction
+suggest the <em>Algorithm Design Manual</em>, MIT’s <a href="https://web.archive.org/web/20200604134756/https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-046j-introduction-to-algorithms-sma-5503-fall-2005/" class="external-link"><em>Introduction
 to Algorithms</em></a>, <em>Algorithms</em> by Robert Sedgewick and
 Kevin Wayne which has a free <a href="http://algs4.cs.princeton.edu/home/" class="external-link">online textbook</a> and a
 matching <a href="https://www.coursera.org/learn/algorithms-part1" class="external-link">Coursera
@@ -1347,7 +1346,7 @@ course</a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
 </div>
 
   </div></footer>
